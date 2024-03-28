@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .head{
+            color:#3B71CA;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .post-back{
+            padding: 10px;
+            margin: 15px;
+            background-color: rgb(196, 212, 255);
+            border-radius: 10px;
+        }
+        .button{
+            border-width: 0px;
+            padding: 3px;
+            margin: 3px;
+            width: 90px;
+            border-radius: 5px;
+        }
+        .p-head{
+            font-size: 30px;
+
+        }
+    </style>
+    
+</head>
+<body>
+    {% include 'nav.html'  %}
+    <h1 class="head">View Posts</h1>
+    
+    {% for i in posts %}
+    <div class="post-back">
+    <h1 class="p-head">{{i[1]}}</h1>
+    
+    <p><b>Content :</b> {{i[2]}}</p>
+    <small><b>Posted At :</b> {{i[3]}}</small>
+    
+    <form action="{{url_for('delete_post',id=i[0])}}" method="POST" onsubmit="return confirm('Are you sure you want to delect this post?');">
+        <button class="button btn btn-danger" >Delete</button>
+    </form>
+    <form action="{{url_for('update_post',id=i[0])}}" method="GET" >
+        <button class="button btn btn-success">edit</button>
+    </form>
+    </div>
+    {% endfor %}
+
+</body>
+</html>

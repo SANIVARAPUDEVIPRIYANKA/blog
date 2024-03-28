@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'nav.html' %}
+    <form method="POST">
+        <lable for="">Title</lable>
+        <input type="text" name="title" value="{{post[1]}}">
+        <lable for="">Content</lable>
+        <textarea rows="5" name="content">{{post[2]}}</textarea>
+        <lable for="">Slug</lable>
+        <input type="text" name="slug" value="{{post[4]}}">
+        <button>Update Post</button>
+    </form>
+</body>
+</html>
