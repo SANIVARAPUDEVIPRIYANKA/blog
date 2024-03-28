@@ -150,9 +150,4 @@ def update_post(id):
 def about():
     return render_template("about.html")
 
-
-
-
-
-
 app.run(debug=True,use_reloader=True)
